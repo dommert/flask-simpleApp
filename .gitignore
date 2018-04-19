@@ -1,3 +1,4 @@
 test.db
 .git/
 .idea/
+.flask_simpleApp/notes.db

@@ -15,7 +15,7 @@ def newNote(slug, content, title=None):
     note = Note(slug=slug, content=content, title=title)
     db.session.add(note)
     db.session.commit()
-    # db.session.close()  # Not sure if needed anymore?
+    db.session.close()
     return "Note Created (maybe)"
 
 # Remove Note
@@ -23,6 +23,7 @@ def removeNote(nid):
     note = Note.query.get(nid)
     db.session.delete(note)
     db.session.commit()
+    db.session.close()
     return "Removed "
 
 # List Note/s
@@ -45,4 +46,5 @@ def updateNote(nid, noteData):
     # Commit
     db.session.add(note)
     db.session.commit()
+    db.session.close()
     return 'Note Updated '
