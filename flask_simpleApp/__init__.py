@@ -5,7 +5,8 @@
 from flask import Flask
 
 app = Flask(__name__)
-app.secret_key = 'a30A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+app.config.from_pyfile('app.cfg')
+
 
 from flask_simpleApp.routes import *
 
